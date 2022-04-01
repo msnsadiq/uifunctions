@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class ScreenHome extends StatefulWidget {
@@ -58,11 +61,16 @@ class _ScreenHomeState extends State<ScreenHome> {
           mainAxisSize: MainAxisSize.min,
           children: [
             TextButton(onPressed: (){
-              Navigator.of(context).pop();
+             // Navigator.of(context).pop();
+              if(Platform.isAndroid){
+                SystemNavigator.pop();
+              }
 
             }, child: Text("ok"),
             ),
-            TextButton(onPressed: (){}, child: Text("no"),
+            TextButton(onPressed: (){
+              Navigator.of(context).pop();
+            }, child: Text("no"),
             )
           ],
         ),
